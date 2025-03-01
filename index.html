@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Of Life</title>
+    <style>
+      body {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        background-color: #f0f0f0;
+      }
+      button {
+        background-color: #d3d3d3;
+        padding: 10px 20px;
+        margin: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 10px;
+      }
+      button:hover {
+        background-color: #b2b2b2;
+      }
+      #controls {
+        display: flex;
+      }
+      canvas {
+        border: 1px solid #000;
+      }
+
+      .stats {
+        margin-top: 20px;
+      }
+      .stats div {
+        margin: 5px;
+      }
+      .enabled {
+        background-color: #b2b2b2;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+
+    <div class="stats">
+      <div>Generation: <span id="generation-count">0</span></div>
+      <div>Live Cells: <span id="live-count">0</span></div>
+    </div>
+
+    <div id="controls">
+      <button id="start">Start</button>
+      <button id="stop">Stop</button>
+      <button id="clear">Clear</button>
+      <button id="draw">Drawing Mode</button>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
