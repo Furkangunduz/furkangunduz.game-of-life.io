@@ -1,104 +1,3 @@
-// Add Chart.js to the page
-const chartScript = document.createElement('script');
-chartScript.src = 'https://cdn.jsdelivr.net/npm/chart.js';
-document.head.appendChild(chartScript);
-
-// Add styles
-const modalStyles = `
-  <style>
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(5px);
-      transition: all 0.3s ease;
-    }
-
-    .modal-content {
-      background-color: #fefefe;
-      margin: 5% auto;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
-      width: 90%;
-      max-width: 700px;
-      transform: translateY(0);
-      transition: all 0.3s ease;
-      position: relative;
-    }
-
-    .modal.show .modal-content {
-      transform: translateY(0);
-      opacity: 1;
-    }
-
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-      padding-bottom: 15px;
-      border-bottom: 1px solid #eee;
-    }
-
-    .modal-title {
-      margin: 0;
-      color: #333;
-      font-size: 24px;
-      font-weight: 600;
-    }
-
-    .close {
-      color: #666;
-      font-size: 28px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: color 0.2s ease;
-      padding: 5px;
-      line-height: 20px;
-      border-radius: 50%;
-    }
-
-    .close:hover {
-      color: #333;
-      background-color: #f5f5f5;
-    }
-
-    .cell-info-container {
-      background-color: #f8f9fa;
-      padding: 15px;
-      border-radius: 8px;
-      margin: 20px 0;
-    }
-
-    .cell-info {
-      font-size: 16px;
-      color: #555;
-      line-height: 1.6;
-    }
-
-    .chart-container {
-      background-color: white;
-      padding: 15px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-      margin-top: 20px;
-    }
-
-    #historyChart {
-      max-height: 300px;
-    }
-  </style>
-`;
-
-document.head.insertAdjacentHTML('beforeend', modalStyles);
-
-// Create modal HTML structure
 const modalHTML = `
   <div id="cell-history-modal" class="modal">
     <div class="modal-content">
@@ -169,7 +68,7 @@ class GameOfLife {
     this.setupCanvas();
     this.setupModal();
 
-    this.cols = this.gridSize * 1.5;
+    this.cols = Math.floor(this.gridSize * 1.8);
     this.rows = this.gridSize;
     this.resolution = this.canvasSize / this.gridSize;
 
@@ -179,7 +78,7 @@ class GameOfLife {
   }
 
   setupCanvas() {
-    this.canvas.width = this.canvasSize * 1.5;
+    this.canvas.width = Math.floor(this.canvasSize * 1.8);
     this.canvas.height = this.canvasSize;
   }
 
@@ -561,9 +460,9 @@ class GameOfLife {
 }
 
 const game = new GameOfLife('canvas', {
-  canvasSize: 700,
-  gridSize: 10,
-  FPS: 2,
+  canvasSize: 750,
+  gridSize: 55,
+  FPS: 10,
 });
 
 const controls = new Controls(game);
