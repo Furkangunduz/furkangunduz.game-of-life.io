@@ -1,22 +1,3 @@
-const modalHTML = `
-  <div id="cell-history-modal" class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2 class="modal-title">Cell History</h2>
-        <span class="close">&times;</span>
-      </div>
-      <div class="cell-info-container">
-        <div id="cell-info" class="cell-info"></div>
-      </div>
-      <div class="chart-container">
-        <canvas id="historyChart"></canvas>
-      </div>
-    </div>
-  </div>
-`;
-
-document.body.insertAdjacentHTML('beforeend', modalHTML);
-
 class Controls {
   constructor(game) {
     this.game = game;
